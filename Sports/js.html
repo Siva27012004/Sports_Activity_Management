@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Sports Activities</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Sports Activities!</h1>
+    
+    <nav>
+      <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/login">Login</a></li>
+        <li><a href="#/signup">Sign up</a></li>
+        <li><a href="#/about">About</a></li>
+        <li><a href="#/events">Events</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main ng-view></main>
+
+  <footer>
+    <h2>About Sports Activities</h2>
+    <p>Sport pertains to any form of physical activity or game, often competitive and organized, that aims to use, maintain, or improve physical ability and skills while providing enjoyment to participants and, in some cases, entertainment to spectators. Sports can, through casual or organized participation, improve participants' physical health. Hundreds of sports exist, from those between single contestants, through to those with hundreds of simultaneous participants, either in teams or competing as individuals. In certain sports such as racing, many contestants may compete, simultaneously or consecutively, with one winner; in others, the contest (a match) is between two sides, each attempting to exceed the other. Some sports allow a "tie" or "draw", in which there is no single winner; others provide tie-breaking methods to ensure one winner and one loser. A number of contests may be arranged in a tournament producing a champion. Many sports leagues make an annual champion by arranging games in a regular sports season, followed in some cases by playoffs.</p>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.config(function($routeProvider) {
+      $routeProvider
+        .when('/home', {
+          template: '<h2>Home Page</h2><p>This is the home page of the Sports Activities website.</p>'
+        })
+        .when('/login', {
+          template: '<h2>Login Page</h2><p>This is the login page.</p>'
+        })
+        .when('/signup', {
+          template: '<h2>Sign Up Page</h2><p>This is the sign-up page.</p>'
+        })
+        .when('/about', {
+          template: '<h2>About Page</h2><p>This is the about page of Sports Activities.</p>'
+        })
+        .when('/events', {
+          template: `
+            <h2>Events</h2>
+            <div class="event">
+              <h3>Football</h3>
+              <p>Date: July 09, 2023</p>
+              <p>Location: National Engineering College</p>
+            </div>
+            <div class="event1">
+              <h3>Basketball Tournament</h3>
+              <p>Date: July 10, 2023</p>
+              <p>Location: National Engineering College</p>
+            </div>
+            <div class="event2">
+              <h3>Cricket Tournament</h3>
+              <p>Date: July 11, 2023</p>
+              <p>Location: National Engineering College</p>
+            </div>
+            <div class="event3">
+              <h3>Hockey Tournament</h3>
+              <p>Date: July 13, 2023</p>
+              <p>Location: National Engineering College</p>
+            </div>
+            <div class="event4">
+              <h3>VolleyBall Tournament</h3>
+              <p>Date: July 15, 2023</p>
+              <p>Location: National Engineering College</p>
+            </div>
+          `
+        })
+        .otherwise({ redirectTo: '/home' });
+    });
+  </script>
+</body>
+</html>

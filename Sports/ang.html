@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Leaderboards</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;0,800;1,400;1,500;1,700&display=swap" rel="stylesheet">  
+    <style>
+       
+       
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            width: 100%;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+      
+
+        .nav {
+            
+            background-color: #fffbfb;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            width: 30%;
+            max-width: 300px;
+            padding: 10px;
+            border: none;
+            border-bottom: 2px solid #000;
+            outline: none;
+            height: 30px;
+            color: #000;
+            background-color: #f0f0f0;
+            font-size: 15px;
+        }
+
+        .search-icon {
+            margin-left: -30px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 800px;
+            overflow-x: auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        th {
+            background-color: rgb(143, 137, 161);
+            color: #fff;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr.gold-medal {
+            background-color: #e9cc26;
+            color: #000;
+            font-weight: bold;
+        }
+
+        tr.silver-medal {
+            background-color: #82dfee;
+            color: #000;
+            font-weight: bold;
+        }
+
+        tr.bronze-medal {
+            background-color: #88ac3f;
+            color: #fff;
+            font-weight: bold;
+        }
+       
+    </style>
+    
+    
+</head>
+<body ng-app="myModule">
+    <div class="nav">
+       
+        
+    </div>
+    <div class="container" ng-controller="myController">
+   
+        <div class="search-container">
+            <input type="text" class="search-input" ng-model="searchstuddetails" placeholder="Search" />
+            <span class="search-icon" ng-click="search()">&#128269;</span>
+        </div>
+     
+        <table>
+            <thead>
+                <tr>
+                    <th>Medal</th>
+                   
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Points</th>
+                    <th>District</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="student in students | filter:searchstuddetails" ng-class="{
+                    'gold-medal': student.rank === 1,
+                    'silver-medal': student.rank === 2,
+                    'bronze-medal': student.rank === 3
+                }">
+                    <td ng-if="student.rank <= 3">
+                        <span ng-if="student.rank === 1">&#x1F947;</span>
+                        <span ng-if="student.rank === 2">&#x1F948;</span> 
+                        <span ng-if="student.rank === 3">&#x1F949;</span> 
+                    </td>
+                    <td ng-if="student.rank > 3">{{ student.rank }}</td>
+                    <td>{{ student.Roll_no }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.rank }}</td>
+                    <td>{{ student.city }}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var app = angular.module("myModule", [])
+            .controller("myController", function ($scope) {
+                var students = [
+                {
+
+Roll_no: 211508,
+name: "santhosh",
+gender: "2890",
+city: "thoothukudi" },
+{
+sno : 2,
+Roll_no: 211506,
+name: "balaji",
+gender: "1890",
+city: "tirunelveli" },
+{
+sno : 3,
+Roll_no: 211545,
+name: "siraj",
+gender: "1290",
+city: "tenkasi" },
+{
+sno : 4,
+Roll_no: 211456,
+name: "Gopi",
+gender: "1190",
+city: "tirunelveli" },
+{
+sno : 5,
+Roll_no: 211666,
+name: "Selva",
+gender: "890",
+city: "thoothukudi" },
+{
+sno : 6,
+Roll_no: 211766,
+name: "anand moorty",
+gender: "890",
+city: "kayaathar" },
+{
+sno : 6,
+Roll_no: 211565,
+name: "Hari",
+gender: "790",
+city: "sivakasi" },
+                    
+ ];
+
+              
+                
+
+          
+                for (var i = 0; i < students.length; i++) {
+                    students[i].rank = i + 1;
+                }
+
+                $scope.students = students;
+            });
+    </script>
+</body>
+</html>

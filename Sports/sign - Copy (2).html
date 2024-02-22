@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sports Activities Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sports Activities Sign Up</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="activity">Activity:</label>
+        <select id="activity" name="activity" required>
+          <option value="">-- Select Activity --</option>
+          <option value="football">Football</option>
+          <option value="basketball">Basketball</option>
+          <option value="cricket">Cricket</option>
+          <option value="volleyball">Volleyball</option>
+          <option value="hockey">Hockey</option
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+     
+
+          
+
+<select name="gender" id="gen">
+  <option value="male" >male</option>
+  <option value="female">female</option>
+  <option value="others">others</option>
+ 
+</select>
+      <button type="submit">Sign Up</button>
+      
+    </form>
+  </div>
+</body>
+</html>
+<style>
+    body{
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1TdLPBfX9Klt8IfqcA_M8BkRB2yQhkij6kw&usqp=CAU);
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding:100;
+        margin:500;
+    }
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #38cadd;
+    color: white;
+    border:50;
+    border-radius: 70px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #57cad6;
+  }
+  </style>
